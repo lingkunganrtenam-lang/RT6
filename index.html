@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal RT 06 Desa Gogik</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root { --primary: #1a5d1a; --secondary: #f39c12; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; color: #333; }
+
+        /* Header Gambar Besar (Mobile Friendly) */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('1.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .navbar { background-color: var(--primary) !important; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .section-title { border-left: 5px solid var(--primary); padding-left: 12px; margin: 35px 0 20px; font-weight: bold; font-size: 1.4rem; }
+        
+        /* Grid Galeri */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 10px;
+        }
+        .gallery-item { 
+            height: 150px; cursor: pointer; border-radius: 10px; 
+            overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+        .gallery-item:hover img { transform: scale(1.05); }
+
+        /* Laporan Kas (Cards) */
+        .card-kas { border: none; border-radius: 15px; box-shadow: 0 3px 10px rgba(0,0,0,0.08); height: 100%; background: #fff; }
+        .label-kas { font-size: 0.8rem; color: #666; }
+        .val-kas { font-weight: 600; font-size: 0.9rem; }
+        .nominal-masuk { color: #27ae60; }
+        .nominal-keluar { color: #e74c3c; }
+        .saldo-akhir { font-size: 1.1rem; color: var(--primary); font-weight: bold; border-top: 1px solid #eee; padding-top: 5px; margin-top: 5px; }
+
+        /* Total Keseluruhan */
+        .card-total-semua { background: var(--primary); color: white; border-radius: 15px; padding: 20px; margin-top: 20px; text-align: center; }
+
+        /* Tabel Responsif HP */
+        .table-responsive { font-size: 0.9rem; }
+
+        .btn-wa { 
+            background-color: #25d366; color: white; border-radius: 50px; 
+            padding: 12px 25px; font-weight: bold; text-decoration: none;
+            display: inline-block; width: 100%; max-width: 300px;
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero h2 { font-size: 1.2rem; }
+            .section-title { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">RT 06 GOGIK</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto text-center">
+                <li class="nav-item"><a class="nav-link" href="#profil">Profil</a></li>
+                <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
+                <li class="nav-item"><a class="nav-link" href="#kas">Laporan Kas</a></li>
+                <li class="nav-item"><a class="nav-link" href="#kegiatan">Laporan Kegiatan</a></li>
+                <li class="nav-item"><a class="nav-link" href="#usulan">Usulan</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="hero">
+    <div class="container">
+        <h1 class="fw-bold">PORTAL INFORMASI RT 06</h1>
+        <h2 class="fw-light">DESA GOGIK</h2>
+        <hr class="mx-auto bg-white" style="width: 50px; height: 3px;">
+        <p>Transparansi & Kerukunan Warga</p>
+    </div>
+</div>
+
+<div class="container px-3 pb-5">
+
+    <section id="profil" class="mt-4">
+        <div class="card p-3 border-0 shadow-sm rounded-4">
+            <h3 class="section-title">Profil RT 06</h3>
+            <p class="text-muted">Selamat datang di portal transparansi RT 06 Desa Gogik. Tempat informasi kegiatan, laporan keuangan bulanan, dan wadah aspirasi warga secara terbuka.</p>
+        </div>
+    </section>
+
+    <section id="galeri">
+        <h3 class="section-title">Galeri Foto Kegiatan</h3>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="zoom(this)"><img src="galeri/galeri (1).jpg"></div>
+			<div class="gallery-item" onclick="zoom(this)"><img src="galeri/galeri (2).jpg"></div>
+			<div class="gallery-item" onclick="zoom(this)"><img src="galeri/galeri (3).jpg"></div>
+			<div class="gallery-item" onclick="zoom(this)"><img src="galeri/galeri (4).jpg"></div>
+			<div class="gallery-item" onclick="zoom(this)"><img src="galeri/galeri (5).jpg"></div>
+			<div class="gallery-item" onclick="zoom(this)"><img src="galeri/galeri (6).jpg"></div>
+			<div class="gallery-item" onclick="zoom(this)"><img src="galeri/galeri (7).jpg"></div>
+			<div class="gallery-item" onclick="zoom(this)"><img src="galeri/galeri (8).jpg"></div>
+			<div class="gallery-item" onclick="zoom(this)"><img src="galeri/galeri (9).jpg"></div>
+			<div class="gallery-item" onclick="zoom(this)"><img src="galeri/galeri (10).jpg"></div>
+           
+        </div>
+    </section>
+
+    <section id="kas">
+        <h3 class="section-title">Laporan Kas Lingkungan</h3>
+        <div class="row g-3">
+            <div class="col-12 col-md-4">
+                <div class="card card-kas p-3">
+                    <h5 class="fw-bold mb-2">Kas Jimpitan</h5>
+                    <div class="d-flex justify-content-between"><span class="label-kas">Saldo Awal:</span> <span class="val-kas">Rp 300.000</span></div>
+                    <div class="d-flex justify-content-between"><span class="label-kas">Pemasukan:</span> <span class="val-kas nominal-masuk">+ Rp 200.000</span></div>
+                    <div class="d-flex justify-content-between"><span class="label-kas">Pengeluaran:</span> <span class="val-kas nominal-keluar">- Rp 100.000</span></div>
+                    <div class="d-flex justify-content-between saldo-akhir"><span>Saldo Akhir:</span> <span>Rp 400.000</span></div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card card-kas p-3">
+                    <h5 class="fw-bold mb-2">Kas Bapak-Bapak</h5>
+                    <div class="d-flex justify-content-between"><span class="label-kas">Saldo Awal:</span> <span class="val-kas">Rp 700.000</span></div>
+                    <div class="d-flex justify-content-between"><span class="label-kas">Pemasukan:</span> <span class="val-kas nominal-masuk">+ Rp 500.000</span></div>
+                    <div class="d-flex justify-content-between"><span class="label-kas">Pengeluaran:</span> <span class="val-kas nominal-keluar">- Rp 300.000</span></div>
+                    <div class="d-flex justify-content-between saldo-akhir"><span>Saldo Akhir:</span> <span>Rp 900.000</span></div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card card-kas p-3">
+                    <h5 class="fw-bold mb-2">Kas Ibu-Ibu</h5>
+                    <div class="d-flex justify-content-between"><span class="label-kas">Saldo Awal:</span> <span class="val-kas">Rp 1.000.000</span></div>
+                    <div class="d-flex justify-content-between"><span class="label-kas">Pemasukan:</span> <span class="val-kas nominal-masuk">+ Rp 1.000.000</span></div>
+                    <div class="d-flex justify-content-between"><span class="label-kas">Pengeluaran:</span> <span class="val-kas nominal-keluar">- Rp 500.000</span></div>
+                    <div class="d-flex justify-content-between saldo-akhir"><span>Saldo Akhir:</span> <span>Rp 1.500.000</span></div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card card-kas p-3">
+                    <h5 class="fw-bold mb-2">Kas Listrik</h5>
+                    <div class="d-flex justify-content-between"><span class="label-kas">Saldo Awal:</span> <span class="val-kas">Rp 100.000</span></div>
+                    <div class="d-flex justify-content-between"><span class="label-kas">Pemasukan:</span> <span class="val-kas nominal-masuk">+ Rp 700.000</span></div>
+                    <div class="d-flex justify-content-between"><span class="label-kas">Pengeluaran:</span> <span class="val-kas nominal-keluar">- Rp 750.000</span></div>
+                    <div class="d-flex justify-content-between saldo-akhir"><span>Saldo Akhir:</span> <span>Rp 50.000</span></div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card card-kas p-3">
+                    <h5 class="fw-bold mb-2">Kas Portal</h5>
+                    <div class="d-flex justify-content-between"><span class="label-kas">Saldo Awal:</span> <span class="val-kas">Rp 150.000</span></div>
+                    <div class="d-flex justify-content-between"><span class="label-kas">Pemasukan:</span> <span class="val-kas nominal-masuk">+ Rp 150.000</span></div>
+                    <div class="d-flex justify-content-between"><span class="label-kas">Pengeluaran:</span> <span class="val-kas nominal-keluar">- Rp 50.000</span></div>
+                    <div class="d-flex justify-content-between saldo-akhir"><span>Saldo Akhir:</span> <span>Rp 250.000</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-total-semua shadow">
+            <h5 class="mb-1">TOTAL SEMUA KAS RT 06</h5>
+            <h2 class="fw-bold mb-0">Rp 3.100.000</h2>
+            <small>*Gabungan dari seluruh saldo akhir kas di atas</small>
+        </div>
+    </section>
+
+    <section id="kegiatan">
+        <h3 class="section-title">Laporan & Dokumentasi Kegiatan</h3>
+        <div class="card border-0 shadow-sm p-2 rounded-4">
+            <div class="table-responsive">
+                <table class="table table-sm align-middle mb-0 text-center">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Kegiatan</th>
+                            <th>In/Out</th>
+                            <th>Dokumentasi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>halal bihalal 2026</strong></td>
+                            <td><span class="nominal-masuk">Rp.7.745.000,-</span><br><span class="nominal-keluar">Rp.7.750.000,-</span></td>
+                            <td>
+                                <div class="gallery-item" onclick="zoom(this)" style="width: 60px; height: 40px;">
+                                    <img src="laporan kegiatan/1.png">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="usulan" class="text-center mt-5">
+        <div class="p-4 bg-white rounded-4 shadow-sm border">
+            <h5>Punya Usulan?</h5>
+            <p class="small text-muted">Kirim pesan langsung ke Pak RT</p>
+            <a href="https://wa.me/628123456789?text=Halo%20Pak%20RT%2006,%20saya%20ingin%20memberikan%20usulan:%20" class="btn-wa" target="_blank">
+                💬 Hubungi Pak RT
+            </a>
+        </div>
+    </section>
+
+</div>
+
+<div class="modal fade" id="zoomModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+        <div class="modal-content bg-transparent border-0 text-center">
+            <div class="modal-body p-0">
+                <img src="" id="imgFull" class="img-fluid rounded shadow-lg">
+                <button type="button" class="btn btn-light mt-3" data-bs-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function zoom(el) {
+        const src = el.querySelector('img').src;
+        document.getElementById('imgFull').src = src;
+        new bootstrap.Modal(document.getElementById('zoomModal')).show();
+    }
+</script>
+
+</body>
+</html>
